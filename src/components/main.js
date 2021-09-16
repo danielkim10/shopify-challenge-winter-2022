@@ -28,9 +28,22 @@ const Main = (props) => {
 
     useEffect(() => {
         setLoading(true);
-        let today = new Date()
-        let dateParse = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()-1}`;
-        fetchData(rover, dateParse, page);
+        let today = new Date() - 86400;
+        let dateParse = `${new Date(today).getFullYear()}-${new Date(today).getMonth()+1}-${new Date(today).getDate()-1}`;
+        const fetchData_init = async () => {
+            try {
+                let response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${dateParse}&page=1&api_key=${process.env.REACT_APP_NASA_KEY}`);
+                let data = await response.json();
+                setImages(data.photos);
+                setAllImages(data.photos);
+                setEarthDate(new Date(dateParse));
+                setPage(1);
+                setLoading(false);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchData_init();
     }, [props])
 
     const fetchData = async (rov, dateParse, p) => {
@@ -40,7 +53,6 @@ const Main = (props) => {
             setImages(data.photos);
             setAllImages(data.photos);
             setEarthDate(new Date(dateParse));
-            setPage(p);
             setLoading(false);
         } catch (error) {
             console.log(error);
@@ -57,8 +69,6 @@ const Main = (props) => {
                 setPage(p);
             }
             else {
-                setImages([]);
-                setAllImages(allImages);
             }
         } catch (error) {
             console.log(error);
@@ -71,8 +81,6 @@ const Main = (props) => {
 
     const createImageCards = () => {
         let imageCards = [];
-        console.log(allImages);
-        console.log(!allImages.length);
         if (!allImages.length) {
             return (
                 <></>
@@ -134,7 +142,7 @@ const Main = (props) => {
             </Navbar>
             <div className='page-grid'>
                 <div></div>
-                {!allImages.length && !loading && <Alert key='no-photos' variant='warning'>{`Could not find more photos from rover ${rover.toUpperCase()} on ${date_parse(earthDate)}`}</Alert>}
+                {!allImages.length && !loading && <Alert key='no-photos' variant='warning'>{`Could not find more photos from rover ${rover.toUpperCase()} on ${earthDate}`}</Alert>}
                 {loading && <Alert key='loading' variant='primary'>Loading...</Alert>}
                 <div className='grid'>
                     <Modal show={showHelp} onHide={handleClose} className='help' dialogClassName='modal-size'>
