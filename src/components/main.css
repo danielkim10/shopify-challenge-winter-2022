@@ -1,0 +1,45 @@
+.page-grid{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.container {
+    width: 60% !important;
+}
+
+.navbar {
+    background-color: white;
+}
+
+.navbar-brand {
+    width: 50%;
+}
+
+.left {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-left: 15px !important;
+}
+
+.navbar-icons {
+    width: 28px !important;
+    height: 28px !important;
+    margin-left: 15px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.right {
+    float: right !important;
+}
+
+.help {
+    top: 35% !important;
+    opacity: 1 !important;
+}

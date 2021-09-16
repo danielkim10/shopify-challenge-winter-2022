@@ -1,0 +1,57 @@
+.card-img-top {
+    width: 480px;
+    height: 480px;
+}
+
+.card {
+    background-color: white;
+    max-width: 480px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin: 15px;
+    box-shadow: -1px -1px #ededc4, -1px 1px #ededc4, 1px -1px #ededc4, 1px 1px #ededc4; 
+}
+
+.card-alignment {
+    display: flex;
+    justify-content: center;
+}
+
+.card-title {
+    text-align: left;
+    font-size: 20px !important;
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+
+.card-text {
+    text-align: left;
+    padding: 15px;
+}
+
+.like-button {
+    float: left;
+    margin: 15px;
+    margin-top: -15px !important;
+    width: 48px !important;
+    height: 48px !important;
+    cursor: pointer;
+}
+
+.not-liked {
+    color: black;
+}
+
+.liked {
+    color: green;
+}
+
+.share-button {
+    float: right;
+    margin: 15px;
+    margin-top: 0px !important;
+    width: 30px !important;
+    height: 30px !important;
+    cursor: pointer;
+    color: black;
+}
