@@ -31,7 +31,7 @@ const Main = (props) => {
         let today = new Date()
         let dateParse = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()-1}`;
         fetchData(rover, dateParse, page);
-    }, [props, page, rover])
+    }, [props])
 
     const fetchData = async (rov, dateParse, p) => {
         try {
@@ -57,7 +57,8 @@ const Main = (props) => {
                 setPage(p);
             }
             else {
-
+                setImages([]);
+                setAllImages(allImages);
             }
         } catch (error) {
             console.log(error);
@@ -70,6 +71,8 @@ const Main = (props) => {
 
     const createImageCards = () => {
         let imageCards = [];
+        console.log(allImages);
+        console.log(!allImages.length);
         if (!allImages.length) {
             return (
                 <></>

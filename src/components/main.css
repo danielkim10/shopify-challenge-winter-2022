@@ -79,12 +79,9 @@
 }
 
 .load-next-card {
-    background-color: white;
     min-width: 480px;
     min-height: 34px;
     max-height: 34px;
-    padding-top: 15px;
-    padding-bottom: 15px;
     margin: 15px;
     margin-top: 0px !important;
     margin-bottom: 15px !important;
