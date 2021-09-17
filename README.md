@@ -1,3 +1,8 @@
+Production: https://danielkim10spacestagram.netlify.app/
+Created in response to the Shopify Frontend Developer Intern Position (Winter 2022).
+
+Notes: I originally wanted to use react-bootstrap as the sole library for UI components but after some difficulties, I ended up combining components from Material-UI. This isn't ideal but... oh well :) .
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
